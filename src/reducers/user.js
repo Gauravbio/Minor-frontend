@@ -10,7 +10,8 @@ export const userReducer=createReducer(initialState,{
     },
     LOGIN_SUCCESS:(state,action)=> {
         state.loading=false;
-        state.user=action.payload;
+        state.user=action.payload.user;
+        state.token=action.payload.token
         state.isAuthenticated=true
     },
     LOGIN_FAILURE:(state,action)=> {
@@ -24,7 +25,8 @@ export const userReducer=createReducer(initialState,{
     },
     SIGNUP_SUCCESS:(state,action)=> {
         state.loading=false;
-        state.user=action.payload;
+        state.user=action.payload.newUser;
+        state.token=action.payload.token
         state.isAuthenticated=true
     },
     SIGNUP_FAILURE:(state,action)=> {
