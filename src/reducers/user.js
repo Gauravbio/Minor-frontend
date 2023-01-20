@@ -11,7 +11,7 @@ export const userReducer=createReducer(initialState,{
     LOGIN_SUCCESS:(state,action)=> {
         state.loading=false;
         state.user=action.payload.user;
-        state.token=action.payload.token
+        state.message=action.payload.message;
         state.isAuthenticated=true
     },
     LOGIN_FAILURE:(state,action)=> {
@@ -25,8 +25,7 @@ export const userReducer=createReducer(initialState,{
     },
     SIGNUP_SUCCESS:(state,action)=> {
         state.loading=false;
-        state.user=action.payload.newUser;
-        state.token=action.payload.token
+        state.user=action.payload;
         state.isAuthenticated=true
     },
     SIGNUP_FAILURE:(state,action)=> {
@@ -47,6 +46,22 @@ export const userReducer=createReducer(initialState,{
         state.loading=false;
         state.error=action.payload;
         state.isAuthenticated=false;
+    },
+
+    LOGOUT_REQUEST:(state)=>{
+        state.loading=true;
+    },
+    LOGOUT_SUCCESS:(state)=> {
+        state.loading=false;
+        state.user=null;
+        state.isAuthenticated=false;
+    },
+    LOGOUT_FAILURE:(state)=>{
+        state.loading=false;
+    },
+
+    CLEAR_MESSAGE:(state)=> {
+        state.message=null
     },
 
     CLEAR_ERROR:(state)=> {

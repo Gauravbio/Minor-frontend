@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react'
+import { useAlert } from 'react-alert';
+import { useDispatch, useSelector } from 'react-redux';
 import {Link, useNavigate} from 'react-router-dom';
 import { login } from '../actions/user';
 import logo from '../assets/logo.jfif';
@@ -7,13 +8,30 @@ import logo from '../assets/logo.jfif';
 const Login = () => {
     const dispatch=useDispatch();
     const navigate=useNavigate();
+    const alert=useAlert()
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    const {error,message}=useSelector(state => state.user)
     const submitHandler=(e)=> {
         e.preventDefault();
         dispatch(login(email,password));
         navigate('/');
     }
+
+    useEffect(()=> {
+        if(error) {
+            alert.error(error)
+            dispatch({
+                type:"CLEAR_ERROR"
+            })
+        }
+        if(message) {
+            alert.success(message);
+            dispatch({type:"CLEAR_MESSAGE"})
+        }
+    },[error,alert,dispatch,message])
   return (
     <section className="bg-gray-50 dark:bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
