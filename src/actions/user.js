@@ -144,7 +144,6 @@ export const resetPassword = (resetToken, newPassword) => async (dispatch) => {
       type: "RESET_REQUEST",
     });
 
-    console.log(resetToken,newPassword)
     const { data } = await axios.post(
       `${process.env.REACT_APP_API_KEY}/user/reset`,
       { resetToken, password: newPassword },
