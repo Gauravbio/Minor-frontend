@@ -12,34 +12,22 @@ import Dashboard from './pages/Dashboard';
 import Library from './pages/Library';
 import { useEffect } from 'react';
 import {loadUser} from './actions/user'
-import { useAlert } from 'react-alert';
 
-import { useJwt } from 'react-jwt';
-import {useNavigate} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
+import Forgot from './pages/Forgot';
+import Reset from './pages/Reset';
 
 
 function App() {
-  const navigate=useNavigate()
   const dispatch=useDispatch();
-  const alert=useAlert();
 
-  const {isAuthenticated,error,message}=useSelector((state)=> state.user)
+  const {isAuthenticated}=useSelector((state)=> state.user)
 
   useEffect(()=> {
     dispatch(loadUser());
   },[dispatch])
 
-  useEffect(()=> {
-    if(error){
-      alert.error(error)
-      dispatch({type:"CLEAR_ERROR"})
-    }
-    if(message) {
-      alert.success(message)
-      dispatch({type:"CLEAR_MESSAGE"})
-    }
-  },[dispatch,error,message,alert])
+  
 
   return (
     <>
@@ -53,6 +41,8 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/dashboard' element={isAuthenticated ?<Dashboard />:<Login />} />
         <Route path='/library' element={isAuthenticated ?<Library />: <Login />} />
+        <Route path='/forgot' element={<Forgot />} />
+        <Route path='/resetPassword/:resetToken' element={<Reset />} />
       </Routes>
     </>
   );

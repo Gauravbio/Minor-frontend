@@ -54,10 +54,36 @@ export const userReducer=createReducer(initialState,{
     LOGOUT_SUCCESS:(state)=> {
         state.loading=false;
         state.user=null;
+        state.message="Logged out"
         state.isAuthenticated=false;
     },
-    LOGOUT_FAILURE:(state)=>{
+    LOGOUT_FAILURE:(state,action)=>{
         state.loading=false;
+        state.error=action.payload
+    },
+
+    FORGOT_REQUEST:(state)=> {
+        state.loading=true;
+    },
+    FORGOT_SUCCESS:(state,action)=> {
+        state.loading=false;
+        state.message=action.payload
+    },
+    FORGOT_FAILURE:(state,action)=> {
+        state.loading=false;
+        state.error=action.payload
+    },
+
+    RESET_REQUEST:(state)=> {
+        state.loading=true;
+    },
+    RESET_SUCCESS:(state,action)=>{
+        state.loading=false;
+        state.message=action.payload
+    },
+    RESET_FAILURE:(state,action)=> {
+        state.loading=false;
+        state.error=action.payload
     },
 
     CLEAR_MESSAGE:(state)=> {

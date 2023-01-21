@@ -8,15 +8,16 @@ const Home = () => {
   const alert=useAlert()
   const dispatch=useDispatch();
 
-  // useEffect(()=> {
-  //   if(error){
-  //     alert.error(error)
-  //     dispatch({type:"CLEAR_ERROR"})
-  //   }
-  //   if(message) {
-  //     alert.success({type:"CLEAR_MESSAGE"})
-  //   }
-  // },[dispatch,error,message,alert])
+  useEffect(()=> {
+    if(error){
+      alert.error(error)
+      dispatch({type:"CLEAR_ERROR"})
+    }
+    if(message) {
+      alert.success(message)
+      dispatch({type:"CLEAR_MESSAGE"})
+    }
+  },[dispatch,error,message,alert])
 
 
   return (
