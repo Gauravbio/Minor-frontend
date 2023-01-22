@@ -3,10 +3,15 @@ import harshal from "../assets/Harshal.jfif"
 import Arun from "../assets/Arun.jfif"
 import gaurav from "../assets/Gaurav.jpg"
 import {BsInstagram, BsLinkedin,BsGithub} from 'react-icons/bs'
+import { useSelector } from 'react-redux'
+import Loader from '../components/Loader'
 
 
 const About = () => {
+
+  const {loading}=useSelector(state=> state.user)
   return (
+    loading ? <Loader className="h-screen" /> :
     <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-col text-center w-full mb-20">

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {Link, useNavigate} from 'react-router-dom';
 import { login } from '../actions/user';
 import logo from '../assets/logo.jfif';
+import Loader from '../components/Loader'
 
 const Login = () => {
     const dispatch=useDispatch();
@@ -13,7 +14,7 @@ const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const {error,message}=useSelector(state => state.user)
+    const {error,message,loading}=useSelector(state => state.user)
     const submitHandler=(e)=> {
         e.preventDefault();
         dispatch(login(email,password));
@@ -33,6 +34,7 @@ const Login = () => {
         }
     },[error,alert,dispatch,message])
   return (
+    loading ? <Loader className="h-screen" /> :
     <section className="bg-gray-50 dark:bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <Link to={'/'} className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">

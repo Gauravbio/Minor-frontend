@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { signup } from '../actions/user';
 import logo from '../assets/logo.jfif';
+import Loader from '../components/Loader';
 
 const Signup = () => {
     const dispatch=useDispatch();
@@ -26,7 +27,9 @@ const Signup = () => {
         }
     }
 
-  return (
+    const {loading}=useSelector(state=> state.user)
+    return (
+      loading ? <Loader className="h-screen" /> :
     <section className="bg-gray-50 dark:bg-gray-900">
   <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <Link className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">

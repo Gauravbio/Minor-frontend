@@ -2,9 +2,10 @@ import React from 'react'
 import { useEffect } from 'react'
 import {useAlert} from 'react-alert'
 import {useDispatch, useSelector} from 'react-redux'
+import Loader from '../components/Loader'
 
 const Home = () => {
-  const {message,error}=useSelector(state => state.user)
+  const {message,error,loading}=useSelector(state => state.user)
   const alert=useAlert()
   const dispatch=useDispatch();
 
@@ -21,7 +22,8 @@ const Home = () => {
 
 
   return (
-    <div>Home</div>
+    loading ? <Loader className="h-screen" /> :
+    (<div>Home</div>)
   )
 }
 
