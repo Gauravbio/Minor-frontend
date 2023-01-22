@@ -29,7 +29,7 @@ const Navbar = () => {
               alt="logo"
             />
             <span className="font-mono ... self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              <h1 className="">Rhythm</h1>
+              <h1 className="font-mono ...">Rhythm</h1>
             </span>
           </Link>
           <button
