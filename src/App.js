@@ -16,6 +16,9 @@ import {loadUser} from './actions/user'
 import { useDispatch, useSelector } from 'react-redux';
 import Forgot from './pages/Forgot';
 import Reset from './pages/Reset';
+import Playlist from './pages/playlists/Playlist';
+import Album from './pages/albums/Album';
+import Artist from './pages/artists/Artist';
 
 
 function App() {
@@ -43,6 +46,9 @@ function App() {
         <Route path='/library' element={isAuthenticated ?<Library />: <Login />} />
         <Route path='/forgot' element={<Forgot />} />
         <Route path='/resetPassword/:resetToken' element={<Reset />} />
+        <Route path='/playlist/:id' element={<Playlist />} />
+        <Route path='/album/:id' element={<Album />} />
+        <Route path='/artist/:id' element={<Artist />} />
       </Routes>
     </>
   );
