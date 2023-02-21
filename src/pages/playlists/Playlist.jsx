@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import GetSongs from '../songs/GetSongs';
-import Player from '../songs/Player';
 import {fetchPlaylistSongs} from "../../actions/spotify"
 import axios from "axios";
 
 const Playlist = () => {
-    const {id} = useParams();
-    const {activeSong}=useSelector((state)=> state.songs);
-    
+    const {id}=useParams();
     const [image, setImage] = useState("https://i.scdn.co/image/ab67706f00000003f1f02761d4ac4a745a6fbaa2")
     
     
@@ -32,7 +29,7 @@ const Playlist = () => {
     //     setImage(data.images[0].url)
     //   }
     //   playlistImage(id)
-    // },[dispatch,id,])
+    // },[dispatch,id])
 
 
     const playlist={
@@ -107,9 +104,6 @@ const Playlist = () => {
     {playlist && playlist.items.map((song)=> (
       <GetSongs key={song.track.name} song={song.track}  />
     ))}
-    {
-      activeSong && <Player song={activeSong} />
-    }
     </div>
     </div>
   )

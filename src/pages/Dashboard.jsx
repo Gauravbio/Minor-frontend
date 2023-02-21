@@ -6,11 +6,10 @@ import Loader from '../components/Loader'
 import TopAlbums from './albums/TopAlbums'
 import TopArtists from './artists/TopArtists'
 import TopPlaylists from './playlists/TopPlaylists'
-import TopSongs from './songs/TopSongs'
 
 const Dashboard = () => {
   const {loading}=useSelector(state=> state.user)
-  const dispatch=useDispatch();
+  // const dispatch=useDispatch();
   // const {top_20}=useSelector(state=> state.songs)
   // useEffect(()=> {
   //   dispatch(topSongs())

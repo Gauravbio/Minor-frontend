@@ -19,12 +19,15 @@ import Reset from './pages/Reset';
 import Playlist from './pages/playlists/Playlist';
 import Album from './pages/albums/Album';
 import Artist from './pages/artists/Artist';
+import Song from "./pages/songs/Song"
+import Player from './pages/songs/Player';
 
 
 function App() {
   const dispatch=useDispatch();
 
   const {isAuthenticated}=useSelector((state)=> state.user)
+  const {activeSong}=useSelector(state=> state.songs)
 
   useEffect(()=> {
     dispatch(loadUser());
@@ -49,7 +52,12 @@ function App() {
         <Route path='/playlist/:id' element={<Playlist />} />
         <Route path='/album/:id' element={<Album />} />
         <Route path='/artist/:id' element={<Artist />} />
+        <Route path='/player/:id' element={<Song />} />
       </Routes>
+
+      {
+        activeSong && <Player song={activeSong} />
+      }
     </>
   );
 }
