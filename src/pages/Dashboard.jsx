@@ -6,14 +6,46 @@ import Loader from '../components/Loader'
 import TopAlbums from './albums/TopAlbums'
 import TopArtists from './artists/TopArtists'
 import TopPlaylists from './playlists/TopPlaylists'
+import Recent from './Recent'
 
 const Dashboard = () => {
   const {loading}=useSelector(state=> state.user)
   // const dispatch=useDispatch();
   // const {top_20}=useSelector(state=> state.songs)
+  const {user}=useSelector(state=> state.user);
   // useEffect(()=> {
   //   dispatch(topSongs())
   // },[dispatch])
+
+  const recents=[
+    {album:{
+      images:[
+        {
+          url:"https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1"
+        }
+      ]
+    },
+    preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
+    name:"In Control (feat. Selin)"},
+    {album:{
+      images:[
+        {
+          url:"https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1"
+        }
+      ]
+    },
+    preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
+    name:"In Control (feat. Selin)"},
+    {album:{
+      images:[
+        {
+          url:"https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1"
+        }
+      ]
+    },
+    preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
+    name:"In Control (feat. Selin)"},
+  ]
 
   const top_20={
     artists:{
@@ -307,7 +339,7 @@ const Dashboard = () => {
     <h1
         className="flex py-5 lg:px-10 md:px-10 px-5 lg:mx-20 md:mx-10 mx-5 font-bold text-4xl text-gray-800"
       >
-        Top Artists
+        Recently Played
       </h1>
       <div
         className="flex overflow-x-scroll pb-10 scrollbar-hide"
@@ -316,8 +348,8 @@ const Dashboard = () => {
           className="flex flex-nowrap lg:ml-20 md:ml-10 ml-10 "
         >
           {
-            top_20 && top_20.artists.items.map((artist)=> (
-              <TopArtists key={artist.data.profile.name} artist={artist.data} />
+            user && user.recents.map((song)=>(
+              <Recent song={song}/>
             ))
           }
         </div>

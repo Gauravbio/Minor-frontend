@@ -166,3 +166,22 @@ export const resetPassword = (resetToken, newPassword) => async (dispatch) => {
     });
   }
 };
+
+export const recentAction=(userId,song)=>async (dispatch) => {
+  try {
+    dispatch({type:"RECENT_REQUEST"});
+
+    const {data}=await axios.post(`${process.env.REACT_APP_API_KEY}/user/recent`,{userId,song},{
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+
+    dispatch({type:"RECENT_SUCCESS",payload:data})
+  } catch (error) {
+    dispatch({
+      type: "RECENT_FAILURE",
+      payload: error.response.data.message,
+    });
+  }
+}

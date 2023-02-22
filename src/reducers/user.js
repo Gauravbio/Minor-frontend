@@ -86,6 +86,18 @@ export const userReducer=createReducer(initialState,{
         state.error=action.payload
     },
 
+    RECENT_REQUEST:(state)=> {
+        state.loading=true
+    },
+    RECENT_SUCCESS:(state,action)=> {
+        state.loading=false;
+        state.recents=action.payload
+    },
+    RECENT_FAILURE:(state,action)=> {
+        state.loading=false;
+        state.error=action.payload;
+    },
+
     CLEAR_MESSAGE:(state)=> {
         state.message=null
     },
