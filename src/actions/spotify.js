@@ -14,9 +14,9 @@ export const topSongs = () => async (dispatch) => {
         numberOfTopResults: "5",
       },
       headers: {
-        "X-RapidAPI-Key": "3758bfef8cmsh12ef36d0d8d36f4p1145bdjsn68fe17a6896d",
-        "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-      },
+        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
+        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+      }
     };
 
     const { data } = await axios.request(options);
@@ -36,9 +36,9 @@ export const playlistDetailsAction = (id) => async (dispatch) => {
       url: "https://spotify23.p.rapidapi.com/playlist/",
       params: { id: id },
       headers: {
-        "X-RapidAPI-Key": "3758bfef8cmsh12ef36d0d8d36f4p1145bdjsn68fe17a6896d",
-        "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-      },
+        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
+        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+      }
     };
 
     const { data } = await axios.request(options);
@@ -62,9 +62,9 @@ export const fetchPlaylistSongs = (id) => async (dispatch) => {
       url: "https://spotify23.p.rapidapi.com/playlist_tracks/",
       params: { id: id, offset: "0", limit: "50" },
       headers: {
-        "X-RapidAPI-Key": "3758bfef8cmsh12ef36d0d8d36f4p1145bdjsn68fe17a6896d",
-        "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-      },
+        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
+        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+      }
     };
 
     const { data } = await axios.request(options);
@@ -84,6 +84,20 @@ export const playerAction=(song)=>async (dispatch)=> {
     dispatch({type:"SONG_PLAYING_REQUEST"});
     console.log(song)
 
+    if(!song.preview_url) {
+      const options = {
+      method: 'GET',
+      url: 'https://spotify23.p.rapidapi.com/tracks/',
+      params: {ids: song},
+      headers: {
+        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
+        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+      }
+    };
+    const {data}=await axios.request(options);
+    song=data.tracks[0];
+  }
+
     dispatch({type:"SONG_PLAYING_SUCCESS",payload:song})
   } catch (error) {
     console.log(error)
@@ -99,7 +113,7 @@ export const albumAction=(id)=> async (dispatch)=> {
       url: 'https://spotify23.p.rapidapi.com/albums/',
       params: {ids: id},
       headers: {
-        'X-RapidAPI-Key': '3758bfef8cmsh12ef36d0d8d36f4p1145bdjsn68fe17a6896d',
+        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };
@@ -121,14 +135,51 @@ export const songAction=(id)=> async (dispatch)=> {
       url: 'https://spotify23.p.rapidapi.com/tracks/',
       params: {ids: id},
       headers: {
-        'X-RapidAPI-Key': '3758bfef8cmsh12ef36d0d8d36f4p1145bdjsn68fe17a6896d',
+        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };
 
     const {data}=await axios.request(options);
-    dispatch({type:"TRACK_DETAILS_SUCCESS",payload:data.tracks[0]});
+    dispatch({type:"TRACK_DETAILS_SUCCESS",payload: data.tracks[0]});
   } catch (error) {
     dispatch({type:"TRACK_DETAILS_FAILURE",payload:error.response.data.message})
+  }
+}
+
+
+export const searchAction=(query)=>async (dispatch)=> {
+  try {
+    dispatch({
+      type:"SEARCH_REQUEST"
+    });
+
+    const options = {
+      method: "GET",
+      url: "https://spotify23.p.rapidapi.com/search/",
+      params: {
+        q: query,
+        type: "tracks",
+        offset: "0",
+        limit: "20",
+      },
+      headers: {
+        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
+        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+      }
+    };
+
+    const {data}=await axios.request(options);
+
+    dispatch({
+      type:"SEARCH_SUCCESS",
+      payload:data.tracks
+    })
+  } catch (error) {
+      console.log(error.message);
+      dispatch({
+        type:"SEARCH_FAILURE",
+        payload:error.message
+      })
   }
 }

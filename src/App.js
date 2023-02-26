@@ -18,7 +18,6 @@ import Forgot from './pages/Forgot';
 import Reset from './pages/Reset';
 import Playlist from './pages/playlists/Playlist';
 import Album from './pages/albums/Album';
-import Artist from './pages/artists/Artist';
 import Song from "./pages/songs/Song"
 import Player from './pages/songs/Player';
 
@@ -33,11 +32,10 @@ function App() {
     dispatch(loadUser());
   },[dispatch])
 
-  
 
   return (
     <>
-      <Navbar />
+      {isAuthenticated && <Navbar />}
 
       <Routes>
         <Route path='/' element={isAuthenticated ? <Home />: <Login />} />
@@ -49,10 +47,9 @@ function App() {
         <Route path='/library' element={isAuthenticated ?<Library />: <Login />} />
         <Route path='/forgot' element={<Forgot />} />
         <Route path='/resetPassword/:resetToken' element={<Reset />} />
-        <Route path='/playlist/:id' element={<Playlist />} />
-        <Route path='/album/:id' element={<Album />} />
-        <Route path='/artist/:id' element={<Artist />} />
-        <Route path='/player/:id' element={<Song />} />
+        <Route path='/playlist/:id' element={isAuthenticated && <Playlist />} />
+        <Route path='/album/:id' element={isAuthenticated && <Album />} />
+        <Route path='/player/:id' element={isAuthenticated && <Song />} />
       </Routes>
 
       {

@@ -83,7 +83,7 @@ export const loadUser = () => async (dispatch) => {
       payload: data.user,
     });
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
     dispatch({
       type: "LOAD_USER_FAILURE",
       payload: error.response.data.message,
@@ -183,5 +183,22 @@ export const recentAction=(userId,song)=>async (dispatch) => {
       type: "RECENT_FAILURE",
       payload: error.response.data.message,
     });
+  }
+}
+
+export const emotionDetection=(image)=> async (dispatch)=> {
+  try {
+    dispatch({type:"EMOTION_REQUEST"});
+    const {data}=await axios.post(`${process.env.REACT_APP_ML_KEY}/emotion`,{image},{
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+
+    dispatch({type:"EMOTION_SUCCESS",payload:data})
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+    dispatch({type:"EMOTION_FAILURE",payload:error})
   }
 }

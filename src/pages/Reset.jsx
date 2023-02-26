@@ -3,7 +3,7 @@ import { useAlert } from 'react-alert';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { resetPassword } from '../actions/user';
-import logo from '../assets/logo.jfif';
+import logo from '../assets/logo.jpeg';
 import Loader from '../components/Loader';
 
 const Reset = () => {

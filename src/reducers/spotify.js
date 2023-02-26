@@ -68,9 +68,21 @@ export const spotifyReducer=createReducer(initialState,{
     },
     TRACK_DETAILS_SUCCESS:(state,action)=> {
         state.loading=false;
-        state.song=action.payload
+        state.songRequested=action.payload
     },
     TRACK_DETAILS_FAILURE:(state,action)=> {
+        state.loading=false;
+        state.error=action.payload;
+    },
+
+    SEARCH_REQUEST:(state)=> {
+        state.loading=true;
+    },
+    SEARCH_SUCCESS:(state,action)=> {
+        state.loading =false;
+        state.searchResult=action.payload
+    },
+    SEARCH_FAILURE:(state,action)=> {
         state.loading=false;
         state.error=action.payload;
     },

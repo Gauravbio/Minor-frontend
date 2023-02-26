@@ -98,6 +98,18 @@ export const userReducer=createReducer(initialState,{
         state.error=action.payload;
     },
 
+    EMOTION_REQUEST:(state)=> {
+        state.loading=true
+    },
+    EMOTION_SUCCESS:(state,action)=> {
+        state.loading=false;
+        state.emotion=action.payload
+    },
+    EMOTION_FAILURE:(state,action)=> {
+        state.loading=false;
+        state.error=action.payload
+    },
+
     CLEAR_MESSAGE:(state)=> {
         state.message=null
     },

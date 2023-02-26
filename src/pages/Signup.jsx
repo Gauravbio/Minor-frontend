@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom'
 import { signup } from '../actions/user';
-import logo from '../assets/logo.jfif';
+import logo from '../assets/logo.jpeg';
 import Loader from '../components/Loader';
 
 const Signup = () => {

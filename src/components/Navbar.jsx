@@ -3,7 +3,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 // import {FcAbout} from 'react-icons/fc'
 import { RxCross1 } from "react-icons/rx";
 import { Link,useNavigate } from "react-router-dom";
-import logo from "../assets/logo.jfif";
+import logo from "../assets/logo.jpeg";
 import {useDispatch, useSelector} from 'react-redux'
 import { logout } from "../actions/user";
 
@@ -49,7 +49,7 @@ const Navbar = () => {
       </nav>
 
       {menu && (
-        <aside className="absolute w-64" aria-label="Sidebar">
+        <aside className="absolute w-64 z-10" aria-label="Sidebar">
           <div className="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
             <ul className="space-y-2">
               <li>
