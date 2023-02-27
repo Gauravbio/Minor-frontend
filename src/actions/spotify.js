@@ -168,7 +168,6 @@ export const searchAction=(query)=>async (dispatch)=> {
         'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
       }
     };
-
     const {data}=await axios.request(options);
 
     dispatch({

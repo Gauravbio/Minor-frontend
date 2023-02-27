@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { useEffect } from 'react'
 import {useAlert} from 'react-alert'
 import {useDispatch, useSelector} from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 import WebCam from 'react-webcam';
 import { emotionDetection } from '../actions/user'
 import scan from '../assets/scanning.gif'
@@ -11,6 +12,7 @@ const Home = () => {
   const alert=useAlert()
   let video=useRef(null);
   const dispatch=useDispatch();
+  const navigate=useNavigate()
 
   const [url, setUrl] = useState(null)
 
@@ -25,10 +27,13 @@ const Home = () => {
   //   }
   // },[dispatch,error,message,alert])
 
+
   const takeImage =()=> {
     const image=video.current.getScreenshot();
     setUrl(image);
+    console.log(image)
     dispatch(emotionDetection(image));
+    navigate('/search')
   }
 
 
@@ -43,8 +48,8 @@ const Home = () => {
       </div>
     </div>):
     (
-      <div className='p-36'>
-       <img alt="loading" className="h-72" src={scan}/>
+      <div className='p-36 flex flex-col items-center mx-auto'>
+       <img alt="loading" className="h-72 w-72" src={scan}/>
        <h1 className='text-2xl font-weight:700  animate-pulse'>Image is sent for detection</h1>
       </div>
     )
