@@ -87,6 +87,18 @@ export const spotifyReducer=createReducer(initialState,{
         state.error=action.payload;
     },
 
+    EMOTION_REQUEST:(state)=> {
+        state.emotionLoading=true
+    },
+    EMOTION_SUCCESS:(state,action)=> {
+        state.emotionLoading=false;
+        state.emotion=action.payload
+    },
+    EMOTION_FAILURE:(state,action)=> {
+        state.emotionLoading=false;
+        state.error=action.payload
+    },
+
     CLEAR_MESSAGE:(state)=> {
         state.message=null
     },

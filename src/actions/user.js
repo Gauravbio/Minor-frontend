@@ -189,6 +189,7 @@ export const recentAction=(userId,song)=>async (dispatch) => {
 export const emotionDetection=(image)=> async (dispatch)=> {
   try {
     dispatch({type:"EMOTION_REQUEST"});
+
     const {data}=await axios.post(`${process.env.REACT_APP_ML_KEY}/emotion`,{image},{
       headers: {
         "Content-type": "application/json",

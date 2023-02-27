@@ -12,12 +12,14 @@ const Dashboard = () => {
   const {loading}=useSelector(state=> state.user)
   // const dispatch=useDispatch();
   // const {top_20}=useSelector(state=> state.songs)
-  const {user}=useSelector(state=> state.user);
+  // const {user}=useSelector(state=> state.user);
   // useEffect(()=> {
   //   dispatch(topSongs())
   // },[dispatch])
 
-  const recents=[
+  const user={
+    recents:
+    [
     {album:{
       images:[
         {
@@ -46,6 +48,7 @@ const Dashboard = () => {
     preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
     name:"In Control (feat. Selin)"},
   ]
+}
 
   const top_20={
     artists:{
