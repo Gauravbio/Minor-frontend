@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../components/Loader";
 import { ImSearch } from "react-icons/im";
 import { searchAction } from "../actions/spotify";
 import Searchmap from "./songs/Searchmap";
 import scan from "../assets/scanning.gif";
+import SearchPlaylist from './playlists/SearchPlaylist';
 
 const Search = () => {
   const [query, setQuery] = useState("");
   const { emotion, emotionLoading } = useSelector((state) => state.songs);
+  // const emotionLoading=false
+  // const emotion={output:"happy"}
 
   const dispatch = useDispatch();
   const { searchResult } = useSelector((state) => state.songs);
@@ -19,11 +21,11 @@ const Search = () => {
 
   useEffect(()=> {
     if(emotion) {
-      setQuery("hindi "+emotion.output+" songs");
-      dispatch(searchAction(query))
+      setQuery(emotion.output+" hindi songs");
+      console.log(query)
     }
     
-  },[emotion])
+  },[emotion,dispatch,query])
 
   const handleChange = (e) => {
    setQuery(e.target.value)
@@ -161,10 +163,11 @@ const Search = () => {
       >
         <div class="flex w-full m-5 md:m-8 lg:m-10 ">
           <input
+          value={query}
             type="text"
             id="simple-search"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="What do you want to listen?"
+            placeholder={emotion ? emotion.output :`What do you want to listen?`}
             onChange={handleChange}
           />
           <button
@@ -180,8 +183,13 @@ const Search = () => {
       </form>
       <div className="flex justify-center">
         <div style={{ maxWidth: "800px" }}>
+          {
+            searchResult && searchResult.playlists.items.map((playlist)=> (
+              <SearchPlaylist key={playlist.data.name} playlist={playlist.data} />
+            ))
+          }
           {searchResult &&
-            searchResult.items.map((song) => (
+            searchResult.tracks.items.map((song) => (
               <Searchmap
                 className="flex justify-center items-center"
                 song={song.data}

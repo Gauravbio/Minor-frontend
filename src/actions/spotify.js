@@ -159,7 +159,7 @@ export const searchAction=(query)=>async (dispatch)=> {
       url: "https://spotify23.p.rapidapi.com/search/",
       params: {
         q: query,
-        type: "tracks",
+        type: "multi",
         offset: "0",
         limit: "20",
       },
@@ -172,7 +172,7 @@ export const searchAction=(query)=>async (dispatch)=> {
 
     dispatch({
       type:"SEARCH_SUCCESS",
-      payload:data.tracks
+      payload:data
     })
   } catch (error) {
       console.log(error.message);
