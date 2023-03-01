@@ -15,14 +15,18 @@ const Player = ({song}) => {
     dispatch({type:"SONG_PLAYING_FAILURE"});
   }
 
-  const handleFavourites=(song)=> {
+  const handleFavourites=()=> {
+    
     user && dispatch(favouriteAction(song,user._id))
   }
 
   useEffect(()=> {
     user && dispatch(recentAction(user._id,song))
-    if(message) alert.success(message)
   },[dispatch,user,song])
+
+  useEffect(()=> {
+    if(message) alert.success(message)
+  },[message,alert])
 
   return (
     <div className='fixed bottom-0 left-0 right-0 flex justify-center items-center ml-14 '>

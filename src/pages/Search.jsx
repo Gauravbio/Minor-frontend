@@ -9,14 +9,12 @@ import SearchPlaylist from './playlists/SearchPlaylist';
 const Search = () => {
   const [query, setQuery] = useState("");
   const { emotion, emotionLoading } = useSelector((state) => state.songs);
-  // const emotionLoading=false
-  // const emotion={output:"happy"}
 
   const dispatch = useDispatch();
-  const { searchResult } = useSelector((state) => state.songs);
+  // const { searchResult } = useSelector((state) => state.songs);
   const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(searchAction(query));
+    // e.preventDefault();
+    // dispatch(searchAction(query));
   };
 
   useEffect(()=> {
@@ -31,122 +29,122 @@ const Search = () => {
    setQuery(e.target.value)
   };
 
-  // const searchResult={
-  //   items:[
-  //     {
-  //       data:{
-  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-  //         id:"0So2sgVa8aJiARPl2P29u2",
-  //         name:"Pope Is a Rockstar",
-  //       albumOfTrack:{
-  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-  //         name:"SALES LP",
-  //         coverArt:{
-  //           sources:[
-  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-  //           ]
-  //         }
-  //       }
-  //       }
-  //     },
-  //     {
-  //       data:{
-  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-  //         id:"0So2sgVa8aJiARPl2P29u2",
-  //         name:"Pope Is a Rockstar",
-  //       albumOfTrack:{
-  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-  //         name:"SALES LP",
-  //         coverArt:{
-  //           sources:[
-  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-  //           ]
-  //         }
-  //       }
-  //       }
-  //     },
-  //     {
-  //       data:{
-  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-  //         id:"0So2sgVa8aJiARPl2P29u2",
-  //         name:"Pope Is a Rockstar",
-  //       albumOfTrack:{
-  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-  //         name:"SALES LP",
-  //         coverArt:{
-  //           sources:[
-  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-  //           ]
-  //         }
-  //       }
-  //       }
-  //     },
-  //     {
-  //       data:{
-  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-  //         id:"0So2sgVa8aJiARPl2P29u2",
-  //         name:"Pope Is a Rockstar",
-  //       albumOfTrack:{
-  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-  //         name:"SALES LP",
-  //         coverArt:{
-  //           sources:[
-  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-  //           ]
-  //         }
-  //       }
-  //       }
-  //     },
-  //     {
-  //       data:{
-  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-  //         id:"0So2sgVa8aJiARPl2P29u2",
-  //         name:"Pope Is a Rockstar",
-  //       albumOfTrack:{
-  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-  //         name:"SALES LP",
-  //         coverArt:{
-  //           sources:[
-  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-  //           ]
-  //         }
-  //       }
-  //       }
-  //     },
-  //     {
-  //       data:{
-  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-  //         id:"0So2sgVa8aJiARPl2P29u2",
-  //         name:"Pope Is a Rockstar",
-  //       albumOfTrack:{
-  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-  //         name:"SALES LP",
-  //         coverArt:{
-  //           sources:[
-  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-  //           ]
-  //         }
-  //       }
-  //       }
-  //     },
-  //     {
-  //       data:{
-  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-  //         id:"0So2sgVa8aJiARPl2P29u2",
-  //         name:"Pope Is a Rockstar",
-  //       albumOfTrack:{
-  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-  //         name:"SALES LP",
-  //         coverArt:{
-  //           sources:[
-  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-  //           ]
-  //         }
-  //       }
-  //       }
-  //     },
-  //   ]
-  // }
+  const searchResult={
+    items:[
+      {
+        data:{
+          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+          id:"0So2sgVa8aJiARPl2P29u2",
+          name:"Pope Is a Rockstar",
+        albumOfTrack:{
+          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+          name:"SALES LP",
+          coverArt:{
+            sources:[
+              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+            ]
+          }
+        }
+        }
+      },
+      {
+        data:{
+          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+          id:"0So2sgVa8aJiARPl2P29u2",
+          name:"Pope Is a Rockstar",
+        albumOfTrack:{
+          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+          name:"SALES LP",
+          coverArt:{
+            sources:[
+              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+            ]
+          }
+        }
+        }
+      },
+      {
+        data:{
+          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+          id:"0So2sgVa8aJiARPl2P29u2",
+          name:"Pope Is a Rockstar",
+        albumOfTrack:{
+          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+          name:"SALES LP",
+          coverArt:{
+            sources:[
+              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+            ]
+          }
+        }
+        }
+      },
+      {
+        data:{
+          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+          id:"0So2sgVa8aJiARPl2P29u2",
+          name:"Pope Is a Rockstar",
+        albumOfTrack:{
+          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+          name:"SALES LP",
+          coverArt:{
+            sources:[
+              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+            ]
+          }
+        }
+        }
+      },
+      {
+        data:{
+          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+          id:"0So2sgVa8aJiARPl2P29u2",
+          name:"Pope Is a Rockstar",
+        albumOfTrack:{
+          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+          name:"SALES LP",
+          coverArt:{
+            sources:[
+              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+            ]
+          }
+        }
+        }
+      },
+      {
+        data:{
+          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+          id:"0So2sgVa8aJiARPl2P29u2",
+          name:"Pope Is a Rockstar",
+        albumOfTrack:{
+          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+          name:"SALES LP",
+          coverArt:{
+            sources:[
+              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+            ]
+          }
+        }
+        }
+      },
+      {
+        data:{
+          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+          id:"0So2sgVa8aJiARPl2P29u2",
+          name:"Pope Is a Rockstar",
+        albumOfTrack:{
+          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+          name:"SALES LP",
+          coverArt:{
+            sources:[
+              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+            ]
+          }
+        }
+        }
+      },
+    ]
+  }
 
   return emotionLoading ? (
     <div className="p-36 flex flex-col items-center mx-auto ">

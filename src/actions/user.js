@@ -208,7 +208,8 @@ export const favouriteAction=(song,userId)=> async (dispatch)=> {
   try {
     dispatch({type:"FAVOURITE_REQUEST"});
     
-    const {data}=await axios.post(`${process.env.REACT_APP_API_KEY}/user/favourite`,{song,userId},{
+    const {data}=await axios.post(`${process.env.REACT_APP_API_KEY}/user/favourite`,
+    {userId:userId,song:song},{
       headers: {
         "Content-type": "application/json",
       },
