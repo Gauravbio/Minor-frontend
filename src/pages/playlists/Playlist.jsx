@@ -20,9 +20,9 @@ const Playlist = () => {
           url: "https://spotify23.p.rapidapi.com/playlist/",
           params: { id: id },
           headers: {
-            "X-RapidAPI-Key": "3758bfef8cmsh12ef36d0d8d36f4p1145bdjsn68fe17a6896d",
-            "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-          },
+            'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
+            'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+          }
         };
     
         const { data } = await axios.request(options);

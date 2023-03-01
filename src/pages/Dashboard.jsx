@@ -4,274 +4,273 @@ import { useDispatch, useSelector } from 'react-redux'
 import { topSongs } from '../actions/spotify'
 import Loader from '../components/Loader'
 import TopAlbums from './albums/TopAlbums'
-import TopArtists from './artists/TopArtists'
 import TopPlaylists from './playlists/TopPlaylists'
 import Recent from './Recent'
 
 const Dashboard = () => {
   const {loading}=useSelector(state=> state.user)
-  // const dispatch=useDispatch();
-  // const {top_20}=useSelector(state=> state.songs)
-  // const {user}=useSelector(state=> state.user);
-  // useEffect(()=> {
-  //   dispatch(topSongs())
-  // },[dispatch])
+  const dispatch=useDispatch();
+  const {top_20}=useSelector(state=> state.songs)
+  const {user}=useSelector(state=> state.user);
+  useEffect(()=> {
+    dispatch(topSongs())
+  },[dispatch])
 
-  const user={
-    recents:
-    [
-    {album:{
-      images:[
-        {
-          url:"https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1"
-        }
-      ]
-    },
-    preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
-    name:"In Control (feat. Selin)"},
-    {album:{
-      images:[
-        {
-          url:"https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1"
-        }
-      ]
-    },
-    preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
-    name:"In Control (feat. Selin)"},
-    {album:{
-      images:[
-        {
-          url:"https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1"
-        }
-      ]
-    },
-    preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
-    name:"In Control (feat. Selin)"},
-  ]
-}
+//   const user={
+//     recents:
+//     [
+//     {album:{
+//       images:[
+//         {
+//           url:"https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1"
+//         }
+//       ]
+//     },
+//     preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
+//     name:"In Control (feat. Selin)"},
+//     {album:{
+//       images:[
+//         {
+//           url:"https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1"
+//         }
+//       ]
+//     },
+//     preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
+//     name:"In Control (feat. Selin)"},
+//     {album:{
+//       images:[
+//         {
+//           url:"https://i.scdn.co/image/ab67616d0000b273fa258529452f4ed34cc961b1"
+//         }
+//       ]
+//     },
+//     preview_url:"https://p.scdn.co/mp3-preview/315b151078df729934712ed1cc21e11506c64017?cid=f6a40776580943a7bc5173125a1e8832",
+//     name:"In Control (feat. Selin)"},
+//   ]
+// }
 
-  const top_20={
-    artists:{
-      items:[
-        {
-          data:{
-            uri:"spotify:artist:6abfAcMcC3hYJcaxzLeiCW",
-            profile:{
-              name:"All India Radio"
-            },
-            visuals:{
-              avatarImage:{
-                sources:[
-                  {
-                    url:"https://i.scdn.co/image/ab6761610000e5ebb7c3a9eadee4624245210c37"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        {
-          data:{
-            uri:"spotify:artist:6abfAcMcC3hYJcaxzLeiCW",
-            profile:{
-              name:"All India Radio"
-            },
-            visuals:{
-              avatarImage:{
-                sources:[
-                  {
-                    url:"https://i.scdn.co/image/ab6761610000e5ebb7c3a9eadee4624245210c37"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        {
-          data:{
-            uri:"spotify:artist:6abfAcMcC3hYJcaxzLeiCW",
-            profile:{
-              name:"All India Radio"
-            },
-            visuals:{
-              avatarImage:{
-                sources:[
-                  {
-                    url:"https://i.scdn.co/image/ab6761610000e5ebb7c3a9eadee4624245210c37"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        {
-          data:{
-            uri:"spotify:artist:6abfAcMcC3hYJcaxzLeiCW",
-            profile:{
-              name:"All India Radio"
-            },
-            visuals:{
-              avatarImage:{
-                sources:[
-                  {
-                    url:"https://i.scdn.co/image/ab6761610000e5ebb7c3a9eadee4624245210c37"
-                  }
-                ]
-              }
-            }
-          }
-        },
-      ]
-    },
-    albums:{
-      items:[
-        {
-          data:{
-            uri:"spotify:album:0Wtm0w4UXe2mqM0Ojbefg6",
-            name:"Top 20 - Bollywood Dance Songs 2018",
-            coverArt:{
-              sources:[
-                {
-                  url:"https://i.scdn.co/image/ab67616d00001e02085edcb32133e5a37e8907d2",
-                  width:300,
-                  height:300
-                }
-              ]
-            }
-          }
-        },
-        {
-          data:{
-            uri:"spotify:album:0Wtm0w4UXe2mqM0Ojbefg6",
-            name:"Top 20 - Bollywood Dance Songs 2018",
-            coverArt:{
-              sources:[
-                {
-                  url:"https://i.scdn.co/image/ab67616d00001e02085edcb32133e5a37e8907d2",
-                  width:300,
-                  height:300
-                }
-              ]
-            }
-          }
-        },
-        {
-          data:{
-            uri:"spotify:album:0Wtm0w4UXe2mqM0Ojbefg6",
-            name:"Top 20 - Bollywood Dance Songs 2018",
-            coverArt:{
-              sources:[
-                {
-                  url:"https://i.scdn.co/image/ab67616d00001e02085edcb32133e5a37e8907d2",
-                  width:300,
-                  height:300
-                }
-              ]
-            }
-          }
-        },
-        {
-          data:{
-            uri:"spotify:album:0Wtm0w4UXe2mqM0Ojbefg6",
-            name:"Top 20 - Bollywood Dance Songs 2018",
-            coverArt:{
-              sources:[
-                {
-                  url:"https://i.scdn.co/image/ab67616d00001e02085edcb32133e5a37e8907d2",
-                  width:300,
-                  height:300
-                }
-              ]
-            }
-          }
-        },
-      ]
-    },
-    playlists:{
-      items:[
-        {
-          data:{
-            uri:"spotify:playlist:3qF07OWQ5nfBJnHLOu0YyD",
-            name:"Bollywood Top Hits 2023",
-            description:"",
-            images:{
-              items:[
-                {
-                  sources:[
-                    {
-                      url:"https://i.scdn.co/image/ab67706c0000da84628c1802557963c727d76e70",
-                      width:null,
-                      height:null
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        },
-        {
-          data:{
-            uri:"spotify:playlist:3qF07OWQ5nfBJnHLOu0YyD",
-            name:"Bollywood Top Hits 2023",
-            description:"",
-            images:{
-              items:[
-                {
-                  sources:[
-                    {
-                      url:"https://i.scdn.co/image/ab67706c0000da84628c1802557963c727d76e70",
-                      width:null,
-                      height:null
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        },
-        {
-          data:{
-            uri:"spotify:playlist:3qF07OWQ5nfBJnHLOu0YyD",
-            name:"Bollywood Top Hits 2023",
-            description:"",
-            images:{
-              items:[
-                {
-                  sources:[
-                    {
-                      url:"https://i.scdn.co/image/ab67706c0000da84628c1802557963c727d76e70",
-                      width:null,
-                      height:null
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        },
-        {
-          data:{
-            uri:"spotify:playlist:3qF07OWQ5nfBJnHLOu0YyD",
-            name:"Bollywood Top Hits 2023",
-            description:"",
-            images:{
-              items:[
-                {
-                  sources:[
-                    {
-                      url:"https://i.scdn.co/image/ab67706c0000da84628c1802557963c727d76e70",
-                      width:null,
-                      height:null
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      ]
-    }
-  }
+//   const top_20={
+//     artists:{
+//       items:[
+//         {
+//           data:{
+//             uri:"spotify:artist:6abfAcMcC3hYJcaxzLeiCW",
+//             profile:{
+//               name:"All India Radio"
+//             },
+//             visuals:{
+//               avatarImage:{
+//                 sources:[
+//                   {
+//                     url:"https://i.scdn.co/image/ab6761610000e5ebb7c3a9eadee4624245210c37"
+//                   }
+//                 ]
+//               }
+//             }
+//           }
+//         },
+//         {
+//           data:{
+//             uri:"spotify:artist:6abfAcMcC3hYJcaxzLeiCW",
+//             profile:{
+//               name:"All India Radio"
+//             },
+//             visuals:{
+//               avatarImage:{
+//                 sources:[
+//                   {
+//                     url:"https://i.scdn.co/image/ab6761610000e5ebb7c3a9eadee4624245210c37"
+//                   }
+//                 ]
+//               }
+//             }
+//           }
+//         },
+//         {
+//           data:{
+//             uri:"spotify:artist:6abfAcMcC3hYJcaxzLeiCW",
+//             profile:{
+//               name:"All India Radio"
+//             },
+//             visuals:{
+//               avatarImage:{
+//                 sources:[
+//                   {
+//                     url:"https://i.scdn.co/image/ab6761610000e5ebb7c3a9eadee4624245210c37"
+//                   }
+//                 ]
+//               }
+//             }
+//           }
+//         },
+//         {
+//           data:{
+//             uri:"spotify:artist:6abfAcMcC3hYJcaxzLeiCW",
+//             profile:{
+//               name:"All India Radio"
+//             },
+//             visuals:{
+//               avatarImage:{
+//                 sources:[
+//                   {
+//                     url:"https://i.scdn.co/image/ab6761610000e5ebb7c3a9eadee4624245210c37"
+//                   }
+//                 ]
+//               }
+//             }
+//           }
+//         },
+//       ]
+//     },
+//     albums:{
+//       items:[
+//         {
+//           data:{
+//             uri:"spotify:album:0Wtm0w4UXe2mqM0Ojbefg6",
+//             name:"Top 20 - Bollywood Dance Songs 2018",
+//             coverArt:{
+//               sources:[
+//                 {
+//                   url:"https://i.scdn.co/image/ab67616d00001e02085edcb32133e5a37e8907d2",
+//                   width:300,
+//                   height:300
+//                 }
+//               ]
+//             }
+//           }
+//         },
+//         {
+//           data:{
+//             uri:"spotify:album:0Wtm0w4UXe2mqM0Ojbefg6",
+//             name:"Top 20 - Bollywood Dance Songs 2018",
+//             coverArt:{
+//               sources:[
+//                 {
+//                   url:"https://i.scdn.co/image/ab67616d00001e02085edcb32133e5a37e8907d2",
+//                   width:300,
+//                   height:300
+//                 }
+//               ]
+//             }
+//           }
+//         },
+//         {
+//           data:{
+//             uri:"spotify:album:0Wtm0w4UXe2mqM0Ojbefg6",
+//             name:"Top 20 - Bollywood Dance Songs 2018",
+//             coverArt:{
+//               sources:[
+//                 {
+//                   url:"https://i.scdn.co/image/ab67616d00001e02085edcb32133e5a37e8907d2",
+//                   width:300,
+//                   height:300
+//                 }
+//               ]
+//             }
+//           }
+//         },
+//         {
+//           data:{
+//             uri:"spotify:album:0Wtm0w4UXe2mqM0Ojbefg6",
+//             name:"Top 20 - Bollywood Dance Songs 2018",
+//             coverArt:{
+//               sources:[
+//                 {
+//                   url:"https://i.scdn.co/image/ab67616d00001e02085edcb32133e5a37e8907d2",
+//                   width:300,
+//                   height:300
+//                 }
+//               ]
+//             }
+//           }
+//         },
+//       ]
+//     },
+//     playlists:{
+//       items:[
+//         {
+//           data:{
+//             uri:"spotify:playlist:3qF07OWQ5nfBJnHLOu0YyD",
+//             name:"Bollywood Top Hits 2023",
+//             description:"",
+//             images:{
+//               items:[
+//                 {
+//                   sources:[
+//                     {
+//                       url:"https://i.scdn.co/image/ab67706c0000da84628c1802557963c727d76e70",
+//                       width:null,
+//                       height:null
+//                     }
+//                   ]
+//                 }
+//               ]
+//             }
+//           }
+//         },
+//         {
+//           data:{
+//             uri:"spotify:playlist:3qF07OWQ5nfBJnHLOu0YyD",
+//             name:"Bollywood Top Hits 2023",
+//             description:"",
+//             images:{
+//               items:[
+//                 {
+//                   sources:[
+//                     {
+//                       url:"https://i.scdn.co/image/ab67706c0000da84628c1802557963c727d76e70",
+//                       width:null,
+//                       height:null
+//                     }
+//                   ]
+//                 }
+//               ]
+//             }
+//           }
+//         },
+//         {
+//           data:{
+//             uri:"spotify:playlist:3qF07OWQ5nfBJnHLOu0YyD",
+//             name:"Bollywood Top Hits 2023",
+//             description:"",
+//             images:{
+//               items:[
+//                 {
+//                   sources:[
+//                     {
+//                       url:"https://i.scdn.co/image/ab67706c0000da84628c1802557963c727d76e70",
+//                       width:null,
+//                       height:null
+//                     }
+//                   ]
+//                 }
+//               ]
+//             }
+//           }
+//         },
+//         {
+//           data:{
+//             uri:"spotify:playlist:3qF07OWQ5nfBJnHLOu0YyD",
+//             name:"Bollywood Top Hits 2023",
+//             description:"",
+//             images:{
+//               items:[
+//                 {
+//                   sources:[
+//                     {
+//                       url:"https://i.scdn.co/image/ab67706c0000da84628c1802557963c727d76e70",
+//                       width:null,
+//                       height:null
+//                     }
+//                   ]
+//                 }
+//               ]
+//             }
+//           }
+//         }
+//       ]
+//     }
+//   }
   
   return (
     loading ? <Loader className="h-screen" /> :
