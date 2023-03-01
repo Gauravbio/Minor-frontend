@@ -203,3 +203,20 @@ export const emotionDetection=(image)=> async (dispatch)=> {
     dispatch({type:"EMOTION_FAILURE",payload:error})
   }
 }
+
+export const favouriteAction=(song,userId)=> async (dispatch)=> {
+  try {
+    dispatch({type:"FAVOURITE_REQUEST"});
+    
+    const {data}=await axios.post(`${process.env.REACT_APP_API_KEY}/user/favourite`,{song,userId},{
+      headers: {
+        "Content-type": "application/json",
+      },
+    })
+
+    dispatch({type:"FAVOURITE_SUCCESS",payload:data.message});
+  } catch (error) {
+    console.log(error.message);
+    dispatch({type:"FAVOURITE_FAILURE",payload:error.response.data.message})
+  }
+}

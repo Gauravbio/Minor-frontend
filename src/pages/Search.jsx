@@ -149,14 +149,15 @@ const Search = () => {
   // }
 
   return emotionLoading ? (
-    <div className="p-36 flex flex-col items-center mx-auto">
+    <div className="p-36 flex flex-col items-center mx-auto ">
       <img alt="loading" className="h-72 w-72" src={scan} />
       <h1 className="text-2xl font-weight:700  animate-pulse">
         Image is sent for detection
       </h1>
     </div>
   ) : (
-    <div className="scrollbar-hide">
+    
+    <div className="scrollbar-hide ">
       <form
         class="flex items-center justify-center pt-4 sticky"
         onSubmit={handleSubmit}
@@ -198,6 +199,7 @@ const Search = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

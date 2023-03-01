@@ -1,6 +1,6 @@
 import React from 'react'
 import harshal from "../assets/Harshal.jfif"
-import Arun from "../assets/Arun.jfif"
+import Arun from "../assets/Arun.jpg"
 import gaurav from "../assets/Gaurav.jpg"
 import {BsInstagram, BsLinkedin,BsGithub} from 'react-icons/bs'
 import { useSelector } from 'react-redux'
@@ -12,7 +12,7 @@ const About = () => {
   const {loading}=useSelector(state=> state.user)
   return (
     loading ? <Loader className="h-screen" /> :
-    <section className="text-gray-600 body-font">
+    <section className="text-gray-600 body-font bg-amber-100">
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-col text-center w-full mb-20">
       <h1 className="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">OUR TEAM</h1>

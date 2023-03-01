@@ -98,6 +98,18 @@ export const userReducer=createReducer(initialState,{
         state.error=action.payload;
     },
 
+    FAVOURITE_REQUEST:(state)=> {
+        state.loading=true
+    },
+    FAVOURITE_SUCCESS:(state,action)=> {
+        state.loading=false;
+        state.message=action.payload
+    },
+    FAVOURITE_FAILURE:(state,action)=> {
+        state.loading=false;
+        state.error=action.payload
+    },
+
     CLEAR_MESSAGE:(state)=> {
         state.message=null
     },

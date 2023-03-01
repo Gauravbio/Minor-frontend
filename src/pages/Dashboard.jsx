@@ -295,7 +295,7 @@ const Dashboard = () => {
         </div>
       </div>
   </div> */}
-    <div className="flex flex-col bg-white m-auto p-auto">
+    <div className="flex flex-col bg-amber-100/100 m-auto p-auto">
     <h1
         className="flex py-5 lg:px-10 md:px-10 px-5 lg:mx-20 md:mx-10 mx-5 font-bold text-4xl text-gray-800"
       >
@@ -317,7 +317,7 @@ const Dashboard = () => {
   </div>
 
 
-    <div className="flex flex-col bg-white m-auto p-auto">
+    <div className="flex flex-col bg-amber-100/100 m-auto p-auto">
     <h1
         className="flex py-5 lg:px-10 md:px-10 px-5 lg:mx-20 md:mx-10 mx-5 font-bold text-4xl text-gray-800"
       >
@@ -337,7 +337,7 @@ const Dashboard = () => {
         </div>
       </div>
   </div>
-    <div className="flex flex-col bg-white m-auto p-auto">
+    <div className="flex flex-col bg-amber-100/100 m-auto p-auto">
     <h1
         className="flex py-5 lg:px-10 md:px-10 px-5 lg:mx-20 md:mx-10 mx-5 font-bold text-4xl text-gray-800"
       >
