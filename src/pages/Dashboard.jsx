@@ -6,6 +6,7 @@ import Loader from '../components/Loader'
 import TopAlbums from './albums/TopAlbums'
 import TopPlaylists from './playlists/TopPlaylists'
 import Recent from './Recent'
+import Footer from "../components/Footer"
 
 const Dashboard = () => {
   const {loading}=useSelector(state=> state.user)
@@ -357,7 +358,7 @@ const Dashboard = () => {
         </div>
       </div>
   </div>
-
+          <Footer />
   
 </div>
 

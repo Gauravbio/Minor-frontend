@@ -5,6 +5,7 @@ import gaurav from "../assets/Gaurav.jpg"
 import {BsInstagram, BsLinkedin,BsGithub} from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 import Loader from '../components/Loader'
+import Footer from '../components/Footer'
 
 
 const About = () => {
@@ -105,6 +106,7 @@ const About = () => {
       </div>
     </div>
   </div>
+  <Footer />
 </section>
     );
 }

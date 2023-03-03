@@ -11,10 +11,10 @@ const Search = () => {
   const { emotion, emotionLoading } = useSelector((state) => state.songs);
 
   const dispatch = useDispatch();
-  // const { searchResult } = useSelector((state) => state.songs);
+  const { searchResult } = useSelector((state) => state.songs);
   const handleSubmit = (e) => {
-    // e.preventDefault();
-    // dispatch(searchAction(query));
+    e.preventDefault();
+    dispatch(searchAction(query));
   };
 
   useEffect(()=> {
@@ -29,125 +29,125 @@ const Search = () => {
    setQuery(e.target.value)
   };
 
-  const searchResult={
-    items:[
-      {
-        data:{
-          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-          id:"0So2sgVa8aJiARPl2P29u2",
-          name:"Pope Is a Rockstar",
-        albumOfTrack:{
-          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-          name:"SALES LP",
-          coverArt:{
-            sources:[
-              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-            ]
-          }
-        }
-        }
-      },
-      {
-        data:{
-          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-          id:"0So2sgVa8aJiARPl2P29u2",
-          name:"Pope Is a Rockstar",
-        albumOfTrack:{
-          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-          name:"SALES LP",
-          coverArt:{
-            sources:[
-              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-            ]
-          }
-        }
-        }
-      },
-      {
-        data:{
-          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-          id:"0So2sgVa8aJiARPl2P29u2",
-          name:"Pope Is a Rockstar",
-        albumOfTrack:{
-          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-          name:"SALES LP",
-          coverArt:{
-            sources:[
-              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-            ]
-          }
-        }
-        }
-      },
-      {
-        data:{
-          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-          id:"0So2sgVa8aJiARPl2P29u2",
-          name:"Pope Is a Rockstar",
-        albumOfTrack:{
-          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-          name:"SALES LP",
-          coverArt:{
-            sources:[
-              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-            ]
-          }
-        }
-        }
-      },
-      {
-        data:{
-          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-          id:"0So2sgVa8aJiARPl2P29u2",
-          name:"Pope Is a Rockstar",
-        albumOfTrack:{
-          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-          name:"SALES LP",
-          coverArt:{
-            sources:[
-              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-            ]
-          }
-        }
-        }
-      },
-      {
-        data:{
-          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-          id:"0So2sgVa8aJiARPl2P29u2",
-          name:"Pope Is a Rockstar",
-        albumOfTrack:{
-          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-          name:"SALES LP",
-          coverArt:{
-            sources:[
-              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-            ]
-          }
-        }
-        }
-      },
-      {
-        data:{
-          uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
-          id:"0So2sgVa8aJiARPl2P29u2",
-          name:"Pope Is a Rockstar",
-        albumOfTrack:{
-          uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
-          name:"SALES LP",
-          coverArt:{
-            sources:[
-              {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
-            ]
-          }
-        }
-        }
-      },
-    ]
-  }
+  // const searchResult={
+  //   items:[
+  //     {
+  //       data:{
+  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+  //         id:"0So2sgVa8aJiARPl2P29u2",
+  //         name:"Pope Is a Rockstar",
+  //       albumOfTrack:{
+  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+  //         name:"SALES LP",
+  //         coverArt:{
+  //           sources:[
+  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+  //           ]
+  //         }
+  //       }
+  //       }
+  //     },
+  //     {
+  //       data:{
+  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+  //         id:"0So2sgVa8aJiARPl2P29u2",
+  //         name:"Pope Is a Rockstar",
+  //       albumOfTrack:{
+  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+  //         name:"SALES LP",
+  //         coverArt:{
+  //           sources:[
+  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+  //           ]
+  //         }
+  //       }
+  //       }
+  //     },
+  //     {
+  //       data:{
+  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+  //         id:"0So2sgVa8aJiARPl2P29u2",
+  //         name:"Pope Is a Rockstar",
+  //       albumOfTrack:{
+  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+  //         name:"SALES LP",
+  //         coverArt:{
+  //           sources:[
+  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+  //           ]
+  //         }
+  //       }
+  //       }
+  //     },
+  //     {
+  //       data:{
+  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+  //         id:"0So2sgVa8aJiARPl2P29u2",
+  //         name:"Pope Is a Rockstar",
+  //       albumOfTrack:{
+  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+  //         name:"SALES LP",
+  //         coverArt:{
+  //           sources:[
+  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+  //           ]
+  //         }
+  //       }
+  //       }
+  //     },
+  //     {
+  //       data:{
+  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+  //         id:"0So2sgVa8aJiARPl2P29u2",
+  //         name:"Pope Is a Rockstar",
+  //       albumOfTrack:{
+  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+  //         name:"SALES LP",
+  //         coverArt:{
+  //           sources:[
+  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+  //           ]
+  //         }
+  //       }
+  //       }
+  //     },
+  //     {
+  //       data:{
+  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+  //         id:"0So2sgVa8aJiARPl2P29u2",
+  //         name:"Pope Is a Rockstar",
+  //       albumOfTrack:{
+  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+  //         name:"SALES LP",
+  //         coverArt:{
+  //           sources:[
+  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+  //           ]
+  //         }
+  //       }
+  //       }
+  //     },
+  //     {
+  //       data:{
+  //         uri:"spotify:track:0So2sgVa8aJiARPl2P29u2",
+  //         id:"0So2sgVa8aJiARPl2P29u2",
+  //         name:"Pope Is a Rockstar",
+  //       albumOfTrack:{
+  //         uri:"spotify:album:7ywSMs3G2OWOGVKMqc7KsE",
+  //         name:"SALES LP",
+  //         coverArt:{
+  //           sources:[
+  //             {url:"https://i.scdn.co/image/ab67616d00001e021138eea74b6d7e06289bedaa"}
+  //           ]
+  //         }
+  //       }
+  //       }
+  //     },
+  //   ]
+  // }
 
   return emotionLoading ? (
-    <div className="p-36 flex flex-col items-center mx-auto ">
+    <div className="p-36 flex flex-col items-center mx-auto">
       <img alt="loading" className="h-72 w-72" src={scan} />
       <h1 className="text-2xl font-weight:700  animate-pulse">
         Image is sent for detection
@@ -180,8 +180,8 @@ const Search = () => {
           </button>
         </div>
       </form>
-      <div className="flex justify-center">
-        <div style={{ maxWidth: "800px" }}>
+      <div className="flex justify-center mx-auto">
+        <div  className="flex flex-col">
           {
             searchResult && searchResult.playlists.items.map((playlist)=> (
               <SearchPlaylist key={playlist.data.name} playlist={playlist.data} />
@@ -190,7 +190,6 @@ const Search = () => {
           {searchResult &&
             searchResult.tracks.items.map((song) => (
               <Searchmap
-                className="flex justify-center items-center"
                 song={song.data}
               />
             ))}

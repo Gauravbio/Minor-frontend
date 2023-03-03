@@ -29,7 +29,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="p-3 border-gray-200 rounded bg-black">
-        <div className="container flex flex-wrap items-center justify-between mx-auto">
+        <div className="flex items-center justify-center ">
         <button
             type="button"
             className="inline-flex items-center p-2 ml-3 text-sm text-white rounded-lg "
@@ -43,7 +43,7 @@ const Navbar = () => {
               />
             )}
           </button>
-          <NavLink to={"/"} className="flex items-center  ">
+          <NavLink to={"/"} className="flex items-center mx-auto">
             <img
               src={logo}
               className="h-6 mr-3 sm:h-10 rounded-full"
@@ -53,6 +53,7 @@ const Navbar = () => {
               Rhythm
             </span>
           </NavLink>
+          
           
         </div>
       </nav>
@@ -68,6 +69,15 @@ const Navbar = () => {
                   onClick={()=> setMenu(false)}
                 >
                   <span className="ml-3">Dashboard</span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink style={navNavLinkStyle}
+                  to={'/'}
+                  className="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  onClick={()=> setMenu(false)}
+                >
+                  <span className="ml-3">Home</span>
                 </NavLink>
               </li>
 
