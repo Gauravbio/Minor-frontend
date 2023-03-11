@@ -20,7 +20,7 @@ const Playlist = () => {
           url: "https://spotify23.p.rapidapi.com/playlist/",
           params: { id: id },
           headers: {
-            'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
+            'X-RapidAPI-Key': '588d03d14emsha6f293ef4238053p153ab6jsn7155dab072fb',
             'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
           }
         };

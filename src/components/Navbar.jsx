@@ -28,7 +28,7 @@ const Navbar = () => {
   };
   return (
     <div>
-      <nav className="p-3 border-gray-200 rounded bg-black">
+      <nav className="w-screen fixed p-3 border-gray-200 rounded bg-black">
         <div className="flex items-center justify-center ">
         <button
             type="button"
@@ -59,7 +59,7 @@ const Navbar = () => {
       </nav>
 
       {menu && (
-        <aside className="absolute w-64 z-10" aria-label="Sidebar">
+        <aside className="absolute w-64 z-10 mt-5" aria-label="Sidebar">
           <div className="px-3 py-4 overflow-y-auto rounded bg-gray-50 dark:bg-gray-800">
             <ul className="space-y-2">
               <li>

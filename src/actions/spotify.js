@@ -14,9 +14,9 @@ export const topSongs = () => async (dispatch) => {
         numberOfTopResults: "5",
       },
       headers: {
-        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
-        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-      }
+    'X-RapidAPI-Key': '588d03d14emsha6f293ef4238053p153ab6jsn7155dab072fb',
+    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+  }
     };
 
     const { data } = await axios.request(options);
@@ -36,9 +36,9 @@ export const playlistDetailsAction = (id) => async (dispatch) => {
       url: "https://spotify23.p.rapidapi.com/playlist/",
       params: { id: id },
       headers: {
-        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
-        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-      }
+    'X-RapidAPI-Key': '588d03d14emsha6f293ef4238053p153ab6jsn7155dab072fb',
+    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+  }
     };
 
     const { data } = await axios.request(options);
@@ -62,9 +62,9 @@ export const fetchPlaylistSongs = (id) => async (dispatch) => {
       url: "https://spotify23.p.rapidapi.com/playlist_tracks/",
       params: { id: id, offset: "0", limit: "50" },
       headers: {
-        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
-        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-      }
+    'X-RapidAPI-Key': '588d03d14emsha6f293ef4238053p153ab6jsn7155dab072fb',
+    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+  }
     };
 
     const { data } = await axios.request(options);
@@ -90,9 +90,9 @@ export const playerAction=(song)=>async (dispatch)=> {
       url: 'https://spotify23.p.rapidapi.com/tracks/',
       params: {ids: song},
       headers: {
-        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
-        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-      }
+    'X-RapidAPI-Key': '588d03d14emsha6f293ef4238053p153ab6jsn7155dab072fb',
+    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+  }
     };
     const {data}=await axios.request(options);
     song=data.tracks[0];
@@ -113,9 +113,9 @@ export const albumAction=(id)=> async (dispatch)=> {
       url: 'https://spotify23.p.rapidapi.com/albums/',
       params: {ids: id},
       headers: {
-        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
-        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-      }
+    'X-RapidAPI-Key': '588d03d14emsha6f293ef4238053p153ab6jsn7155dab072fb',
+    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+  }
     };
 
     const {data}=await axios.request(options);
@@ -135,9 +135,9 @@ export const songAction=(id)=> async (dispatch)=> {
       url: 'https://spotify23.p.rapidapi.com/tracks/',
       params: {ids: id},
       headers: {
-        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
-        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-      }
+    'X-RapidAPI-Key': '588d03d14emsha6f293ef4238053p153ab6jsn7155dab072fb',
+    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+  }
     };
 
     const {data}=await axios.request(options);
@@ -164,9 +164,9 @@ export const searchAction=(query)=>async (dispatch)=> {
         limit: "20",
       },
       headers: {
-        'X-RapidAPI-Key': '16847b9fe9mshc56a933d70acad5p1d6639jsn31dd94da1368',
-        'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
-      }
+    'X-RapidAPI-Key': '588d03d14emsha6f293ef4238053p153ab6jsn7155dab072fb',
+    'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+  }
     };
     const {data}=await axios.request(options);
 

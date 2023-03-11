@@ -15,7 +15,7 @@ const Song = ({id}) => {
         url: 'https://spotify23.p.rapidapi.com/tracks/',
         params: {ids: id},
         headers: {
-          'X-RapidAPI-Key': '3758bfef8cmsh12ef36d0d8d36f4p1145bdjsn68fe17a6896d',
+          'X-RapidAPI-Key': '588d03d14emsha6f293ef4238053p153ab6jsn7155dab072fb',
           'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
         }
       };
